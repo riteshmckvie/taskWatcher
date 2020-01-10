@@ -27,7 +27,7 @@ public class TaskInvokeService {
 		HttpHeaders headers = new HttpHeaders();
 	    headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 	    HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
-		URI uri = new URI("http://localhost:9393/tasks/executions?name="+taskName);
+		URI uri = new URI("http://localhost:9393/tasks/executions?name="+taskName + "&arguments=--a=1");
 		ResponseEntity<String> result = restTemplate.exchange(uri , HttpMethod.POST, entity, String.class);
 	     
 	    System.out.println(result);
